@@ -2,3 +2,12 @@ h3 {
   font: size medium;
   color: gray;
   }
+
+  /* something like this for the smaller cards?
+{
+  display:flex;
+} */
+/* .card-body {
+    border: 1px solid black;
+
+  } */
