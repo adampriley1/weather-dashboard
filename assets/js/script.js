@@ -26,6 +26,7 @@ $(".search-button").on("click", function (event) {
     citySearch +
     "&appid=5182d0376e53c61cba7fadacb43513d8&units=metric";
 
+// function searchAndDisplay(); {   ///ADD THIS TO A SEARCH FUNCTION TO CALL WHEN HISTORY BUTTON PRESSED??
   fetch(queryURL)
     .then(function (response) {
       return response.json();
@@ -67,8 +68,7 @@ $(".search-button").on("click", function (event) {
       for (var i = 1; i < forecastData.length; i++) {
         //create div (and card) +  p and img elements
         const forecastDiv = $("<div>")
-          .addClass(
-            "card-body p-2 m-2 border border-dark bg-light justify-content-start").css("width", "9rem");
+          .addClass("card-body p-2 m-2 border border-dark bg-light justify-content-start").css("width", "9rem");
         const forecastDateP = $("<p>");
         const forecastTempP = $("<p>");
         const forecastWindP = $("<p>");
@@ -106,13 +106,22 @@ $(".search-button").on("click", function (event) {
 });
 
 
+
+
 //create button for each new search -  function
 function createNewButton(citySearch) {
+
+    const cityName = $("#search-input").val();
+
   const cityBtn = $("<button/>");
 
   // Button text
-  cityBtn.text($("#search-input").val());
+  cityBtn.text(cityName);
 
+    // Added a data-attribute to the button (to use for searching when button pressed)
+    cityBtn.attr("data-name", cityName);
+
+//   console.log(cityBtn.attr("data-name"));
   //create new div
   const historyDiv = $("<div>");
 
@@ -138,12 +147,28 @@ function saveCity() {
 
         localStorage.setItem('data','[]');
     }
-
     const savedCities = JSON.parse(localStorage.getItem('data'));
     savedCities.push(newData);
 
     localStorage.setItem('data', JSON.stringify(savedCities));
+
 }
+
+//Function to load search history to buttons
+
+function loadHistory (){
+
+    localStorage.getItem('data')
+
+    //loop through local storage data
+
+    for (var i = 0; i < data.length; i++) {
+    cityBtn.attr("data-name"[i]);
+    
+
+};
+
+};
 
 
 //add search city to local storge array (savedCities)
@@ -158,7 +183,7 @@ function saveCity() {
 
 // TODO
 
-// 2. When user search for a city, store it in local storage
+// 2. When user search for a city, store it in local storage - DONE
 // 3. On initial page load load the search history and show it as a list in the HTML
 //    - ....
 //    - Build the API query URL based on the history stored in local storage

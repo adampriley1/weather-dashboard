@@ -3,4 +3,6 @@ h3 {
   color: gray;
   }
 
- 
+  body {background-color: rgb(115, 174, 241);}
+
+  #today {background-color: rgb(143, 190, 242);}
