@@ -1,5 +1,5 @@
 $(document).ready(function () { 
-    
+
 var currentCityEl = $(".currentCityDisplay");
 var currentDateEl = $(".currentDateDisplay");
 var currentIconEl = $(".currentIconDisplay");
@@ -113,10 +113,10 @@ $(".search-button").on("click", function (event) {
   
 });  
 
-//create button for each new search 
-function createNewButton(citySearch) {
+//create new button 
+function createNewButton(cityName) {
 
-const cityName = $("#search-input").val();
+// const cityName = $("#search-input").val();
 
 //if the city name is not empty then create button...
 if (cityName) {
@@ -172,7 +172,7 @@ function loadHistory (){
 
     const savedCities = JSON.parse(localStorage.getItem('data'));
 
-    //loop through local storage data if there is data in savedCities
+    //loop through local storage data if there is data in savedCities. If so, crete new button with each as it loops through
     if (savedCities){
         for (let i = 0; i < savedCities.length; i++) {
     createNewButton (savedCities[i]);
@@ -187,14 +187,3 @@ loadHistory ();
 });
 // localStorage.clear();
 
-
-
-// TODO
-
-// 2. When user search for a city, store it in local storage - DONE
-// 3. On initial page load load the search history and show it as a list in the HTML
-//    - ....
-//    - Build the API query URL based on the history stored in local storage
-//    - Call the API and render the result in the HTML
-// 4. When user click on the search history, call weather API and show the result in the HTML
-// 5. CSS
