@@ -30,13 +30,14 @@ Requirements:
 
 Screenshot of working HTML page:
 
-
+![Alt text](<assets/screenshots/weather screenshot_1.png>)
+![Alt text](<assets/screenshots/weather screenshot_2.png>)
 
 ## Installation
 
 Application Link:
 
-https://adampriley1.github.io/plannerApp/
+https://adampriley1.github.io/weather-dashboard/
 
 ## Usage
 
